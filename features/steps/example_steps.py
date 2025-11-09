@@ -8,7 +8,7 @@ def step_impl(context):
 
 @when('I send a request to create the note')
 def step_impl(context):
-    context.page = NotePage("https://github.com/dipFireWorker/PatternsAndBDD")
+    context.page = NotePage("http://127.0.0.1:8000")
     context.response = context.page.create_note(context.note_data)
 
 @then('the response status code should be {status_code:d}')
