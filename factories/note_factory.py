@@ -61,8 +61,8 @@ class NoteFactory(factory.DictFactory):
     class Meta:
         model = dict
 
-    title = factory.Faker('sentence', nb_words=4)  # Faker создаст случайные заголовки
-    content = factory.Faker('paragraph', nb_sentences=3)  # Faker создаст случайное содержимое
+    title = factory.Faker('sentence', nb_words=4)  
+    content = factory.Faker('paragraph', nb_sentences=3)  
 
     @classmethod
     def build(cls, **kwargs):
@@ -90,7 +90,7 @@ class NoteFactory(factory.DictFactory):
 
     @classmethod
     def with_invalid_data(cls):
-        return cls.build(title=None, content=123)  # Invalid types
+        return cls.build(title=None, content=123)  
 
 
     @classmethod
@@ -103,7 +103,7 @@ class NoteFactory(factory.DictFactory):
 
     @classmethod
     def generate_invalid_id(cls):
-        return 99999  # Should be an ID that doesn't exist in your database
+        return 99999  
 
 
     @classmethod
