@@ -1,0 +1,8 @@
+Feature: Create a note # features/example.feature:1
+
+  Scenario: Successfully create a note with valid data    # features/example.feature:2
+    Given I have a valid note payload                     # features/steps/example_steps.py:5
+    When I send a request to create the note              # features/steps/example_steps.py:9
+    Then the response status code should be 200           # features/steps/example_steps.py:14
+    And the response should contain the created note data # features/steps/example_steps.py:18
+
