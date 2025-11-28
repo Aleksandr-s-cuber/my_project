@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Feature: Create a note # features/create_a_note.feature:1
   As a user
   I want to be able to create a note
@@ -20,10 +21,214 @@ Feature: Delete a note by ID # features/delete_ a_ note.feature:1
 
   Scenario: Delete an existing note by valid ID            # features/delete_ a_ note.feature:3
     Given a note exists with ID "123"                      # None
+=======
+Feature: Create a note # features/create a note.feature:1
+
+  Scenario: Successfully create a note with valid data    # features/create a note.feature:2
+    Given I have a valid note payload                     # features/steps/example_steps.py:67
+    When I send a request to create the note              # features/steps/example_steps.py:76
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+          conn = connection.create_connection(
+              (self._dns_host, self.port), self.timeout, **extra_kw
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+          raise err
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+          httplib_response = self._make_request(
+              conn,
+          ...<5 lines>...
+              chunked=chunked,
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 416, in _make_request
+          conn.request(method, url, **httplib_request_kw)
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 244, in request
+          super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1338, in request
+          self._send_request(method, url, body, headers, encode_chunked)
+          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1384, in _send_request
+          self.endheaders(body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 205, in connect
+          conn = self._new_conn()
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+          raise NewConnectionError(
+              self, "Failed to establish a new connection: %s" % e
+          )
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001D26F21CD70>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 440, in send
+          resp = conn.urlopen(
+              method=request.method,
+          ...<8 lines>...
+              timeout=timeout
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+          retries = retries.increment(
+              method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\retry.py", line 594, in increment
+          raise MaxRetryError(_pool, url, error or ResponseError(cause))
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F21CD70>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "features\steps\example_steps.py", line 78, in step_impl
+          context.response = api_client.create_note(context.note_payload)
+                             ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+        File "features\steps\example_steps.py", line 39, in create_note
+          return requests.post(f"{self.base_url}", json=note_data, headers=headers)
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 117, in post
+          return request('post', url, data=data, json=json, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 61, in request
+          return session.request(method=method, url=url, **kwargs)
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 529, in request
+          resp = self.send(prep, **send_kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 645, in send
+          r = adapter.send(request, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 519, in send
+          raise ConnectionError(e, request=request)
+      requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F21CD70>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+
+    Then the response status code should be 200           # None
+    And the response should contain the created note data # None
+
+Feature: Delete a note by ID # features/delete a note by id.feature:1
+
+  Scenario: Delete an existing note by valid ID            # features/delete a note by id.feature:3
+    Given a note exists with ID "123"                      # features/steps/example_steps.py:95
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+          conn = connection.create_connection(
+              (self._dns_host, self.port), self.timeout, **extra_kw
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+          raise err
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+          httplib_response = self._make_request(
+              conn,
+          ...<5 lines>...
+              chunked=chunked,
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 416, in _make_request
+          conn.request(method, url, **httplib_request_kw)
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 244, in request
+          super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1338, in request
+          self._send_request(method, url, body, headers, encode_chunked)
+          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1384, in _send_request
+          self.endheaders(body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 205, in connect
+          conn = self._new_conn()
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+          raise NewConnectionError(
+              self, "Failed to establish a new connection: %s" % e
+          )
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001D26F230F50>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 440, in send
+          resp = conn.urlopen(
+              method=request.method,
+          ...<8 lines>...
+              timeout=timeout
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+          retries = retries.increment(
+              method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\retry.py", line 594, in increment
+          raise MaxRetryError(_pool, url, error or ResponseError(cause))
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F230F50>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "features\steps\example_steps.py", line 101, in step_impl
+          response = api_client.create_note(note_payload)
+        File "features\steps\example_steps.py", line 39, in create_note
+          return requests.post(f"{self.base_url}", json=note_data, headers=headers)
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 117, in post
+          return request('post', url, data=data, json=json, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 61, in request
+          return session.request(method=method, url=url, **kwargs)
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 529, in request
+          resp = self.send(prep, **send_kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 645, in send
+          r = adapter.send(request, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 519, in send
+          raise ConnectionError(e, request=request)
+      requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F230F50>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+
+>>>>>>> ad2e0c675e48a461a6cfb7c8bb8d56aa01a17d49
     When I send a request to delete the note with ID "123" # None
     Then the response status code should be 204            # None
     And the note with ID "123" should be deleted           # None
 
+<<<<<<< HEAD
   Scenario: Delete a non-existing note by invalid ID              # features/delete_ a_ note.feature:9
     When I send a request to delete the note with ID "invalid_id" # None
     Then the response status code should be 404                   # None
@@ -33,11 +238,212 @@ Feature: Edit a note by ID # features/edit_a_note_by.feature:1
 
   Scenario: Edit a note by valid ID                        # features/edit_a_note_by.feature:3
     Given a note exists with ID "123"                      # None
+=======
+  Scenario: Delete a non-existing note by invalid ID              # features/delete a note by id.feature:9
+    When I send a request to delete the note with ID "invalid_id" # features/steps/example_steps.py:109
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+          conn = connection.create_connection(
+              (self._dns_host, self.port), self.timeout, **extra_kw
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+          raise err
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+          httplib_response = self._make_request(
+              conn,
+          ...<5 lines>...
+              chunked=chunked,
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 416, in _make_request
+          conn.request(method, url, **httplib_request_kw)
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 244, in request
+          super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1338, in request
+          self._send_request(method, url, body, headers, encode_chunked)
+          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1384, in _send_request
+          self.endheaders(body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 205, in connect
+          conn = self._new_conn()
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+          raise NewConnectionError(
+              self, "Failed to establish a new connection: %s" % e
+          )
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001D26F231810>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 440, in send
+          resp = conn.urlopen(
+              method=request.method,
+          ...<8 lines>...
+              timeout=timeout
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+          retries = retries.increment(
+              method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\retry.py", line 594, in increment
+          raise MaxRetryError(_pool, url, error or ResponseError(cause))
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /invalid_id (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F231810>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "features\steps\example_steps.py", line 111, in step_impl
+          context.response = api_client.delete_note(note_id) if note_id != "123" else api_client.delete_note(
+                             ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+        File "features\steps\example_steps.py", line 54, in delete_note
+          return requests.delete(f"{self.base_url}/{note_id}")
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 159, in delete
+          return request('delete', url, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 61, in request
+          return session.request(method=method, url=url, **kwargs)
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 529, in request
+          resp = self.send(prep, **send_kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 645, in send
+          r = adapter.send(request, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 519, in send
+          raise ConnectionError(e, request=request)
+      requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /invalid_id (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F231810>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+
+    Then the response status code should be 404                   # None
+    And the response should contain an error message              # None
+
+Feature: Edit a note by ID # features/edit a note by id.feature:1
+
+  Scenario: Edit a note by valid ID                        # features/edit a note by id.feature:3
+    Given a note exists with ID "123"                      # features/steps/example_steps.py:95
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+          conn = connection.create_connection(
+              (self._dns_host, self.port), self.timeout, **extra_kw
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+          raise err
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+          httplib_response = self._make_request(
+              conn,
+          ...<5 lines>...
+              chunked=chunked,
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 416, in _make_request
+          conn.request(method, url, **httplib_request_kw)
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 244, in request
+          super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1338, in request
+          self._send_request(method, url, body, headers, encode_chunked)
+          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1384, in _send_request
+          self.endheaders(body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 205, in connect
+          conn = self._new_conn()
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+          raise NewConnectionError(
+              self, "Failed to establish a new connection: %s" % e
+          )
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001D26F229BA0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 440, in send
+          resp = conn.urlopen(
+              method=request.method,
+          ...<8 lines>...
+              timeout=timeout
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+          retries = retries.increment(
+              method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\retry.py", line 594, in increment
+          raise MaxRetryError(_pool, url, error or ResponseError(cause))
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F229BA0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "features\steps\example_steps.py", line 101, in step_impl
+          response = api_client.create_note(note_payload)
+        File "features\steps\example_steps.py", line 39, in create_note
+          return requests.post(f"{self.base_url}", json=note_data, headers=headers)
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 117, in post
+          return request('post', url, data=data, json=json, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 61, in request
+          return session.request(method=method, url=url, **kwargs)
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 529, in request
+          resp = self.send(prep, **send_kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 645, in send
+          r = adapter.send(request, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 519, in send
+          raise ConnectionError(e, request=request)
+      requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F229BA0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+
+>>>>>>> ad2e0c675e48a461a6cfb7c8bb8d56aa01a17d49
     And a valid payload to update the note                 # None
     When I send a request to update the note with ID "123" # None
     Then the response status code should be 200            # None
     And the note with ID "123" should be updated           # None
 
+<<<<<<< HEAD
   Scenario: Edit a note by invalid ID                             # features/edit_a_note_by.feature:10
     Given a valid payload to update the note                      # None
     When I send a request to update the note with ID "invalid_id" # None
@@ -48,10 +454,212 @@ Feature: Get a note by ID # features/get a note.feature:1
 
   Scenario: Get a note by valid ID                         # features/get a note.feature:3
     Given a note exists with ID "123"                      # None
+=======
+  Scenario: Edit a note by invalid ID                             # features/edit a note by id.feature:10
+    Given a valid payload to update the note                      # features/steps/example_steps.py:137
+    When I send a request to update the note with ID "invalid_id" # features/steps/example_steps.py:128
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+          conn = connection.create_connection(
+              (self._dns_host, self.port), self.timeout, **extra_kw
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+          raise err
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+          httplib_response = self._make_request(
+              conn,
+          ...<5 lines>...
+              chunked=chunked,
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 416, in _make_request
+          conn.request(method, url, **httplib_request_kw)
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 244, in request
+          super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1338, in request
+          self._send_request(method, url, body, headers, encode_chunked)
+          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1384, in _send_request
+          self.endheaders(body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 205, in connect
+          conn = self._new_conn()
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+          raise NewConnectionError(
+              self, "Failed to establish a new connection: %s" % e
+          )
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001D26F22A2C0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 440, in send
+          resp = conn.urlopen(
+              method=request.method,
+          ...<8 lines>...
+              timeout=timeout
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+          retries = retries.increment(
+              method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\retry.py", line 594, in increment
+          raise MaxRetryError(_pool, url, error or ResponseError(cause))
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /invalid_id (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F22A2C0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "features\steps\example_steps.py", line 134, in step_impl
+          context.response = api_client.update_note(note_id, update_data)
+                             ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+        File "features\steps\example_steps.py", line 50, in update_note
+          return requests.put(f"{self.base_url}/{note_id}", json=update_data, headers=headers)
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 132, in put
+          return request('put', url, data=data, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 61, in request
+          return session.request(method=method, url=url, **kwargs)
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 529, in request
+          resp = self.send(prep, **send_kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 645, in send
+          r = adapter.send(request, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 519, in send
+          raise ConnectionError(e, request=request)
+      requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /invalid_id (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F22A2C0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+
+    Then the response status code should be 400                   # None
+    And the response should contain an error message              # None
+
+Feature: Get a note by ID # features/get a note by id.feature:1
+
+  Scenario: Get a note by valid ID                         # features/get a note by id.feature:3
+    Given a note exists with ID "123"                      # features/steps/example_steps.py:95
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+          conn = connection.create_connection(
+              (self._dns_host, self.port), self.timeout, **extra_kw
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+          raise err
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+          httplib_response = self._make_request(
+              conn,
+          ...<5 lines>...
+              chunked=chunked,
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 416, in _make_request
+          conn.request(method, url, **httplib_request_kw)
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 244, in request
+          super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1338, in request
+          self._send_request(method, url, body, headers, encode_chunked)
+          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1384, in _send_request
+          self.endheaders(body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 205, in connect
+          conn = self._new_conn()
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+          raise NewConnectionError(
+              self, "Failed to establish a new connection: %s" % e
+          )
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001D26F2A9370>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 440, in send
+          resp = conn.urlopen(
+              method=request.method,
+          ...<8 lines>...
+              timeout=timeout
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+          retries = retries.increment(
+              method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\retry.py", line 594, in increment
+          raise MaxRetryError(_pool, url, error or ResponseError(cause))
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F2A9370>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "features\steps\example_steps.py", line 101, in step_impl
+          response = api_client.create_note(note_payload)
+        File "features\steps\example_steps.py", line 39, in create_note
+          return requests.post(f"{self.base_url}", json=note_data, headers=headers)
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 117, in post
+          return request('post', url, data=data, json=json, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 61, in request
+          return session.request(method=method, url=url, **kwargs)
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 529, in request
+          resp = self.send(prep, **send_kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 645, in send
+          r = adapter.send(request, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 519, in send
+          raise ConnectionError(e, request=request)
+      requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F2A9370>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+
+>>>>>>> ad2e0c675e48a461a6cfb7c8bb8d56aa01a17d49
     When I request the note with ID "123"                  # None
     Then the response status code should be 200            # None
     And the response should contain the note with ID "123" # None
 
+<<<<<<< HEAD
   Scenario: Get a note by invalid ID                 # features/get a note.feature:9
     When I request the note with ID "invalid_id"     # None
     Then the response status code should be 400      # None
@@ -61,12 +669,314 @@ Feature: Get all notes # features/get_ all_notes.feature:1
 
   Scenario: Get all notes when notes exist          # features/get_ all_notes.feature:3
     Given there are existing notes in the system    # None
+=======
+  Scenario: Get a note by invalid ID                 # features/get a note by id.feature:9
+    When I request the note with ID "invalid_id"     # features/steps/example_steps.py:151
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+          conn = connection.create_connection(
+              (self._dns_host, self.port), self.timeout, **extra_kw
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+          raise err
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+          httplib_response = self._make_request(
+              conn,
+          ...<5 lines>...
+              chunked=chunked,
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 416, in _make_request
+          conn.request(method, url, **httplib_request_kw)
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 244, in request
+          super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1338, in request
+          self._send_request(method, url, body, headers, encode_chunked)
+          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1384, in _send_request
+          self.endheaders(body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 205, in connect
+          conn = self._new_conn()
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+          raise NewConnectionError(
+              self, "Failed to establish a new connection: %s" % e
+          )
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001D26F2AC5A0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 440, in send
+          resp = conn.urlopen(
+              method=request.method,
+          ...<8 lines>...
+              timeout=timeout
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+          retries = retries.increment(
+              method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\retry.py", line 594, in increment
+          raise MaxRetryError(_pool, url, error or ResponseError(cause))
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /invalid_id (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F2AC5A0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "features\steps\example_steps.py", line 153, in step_impl
+          context.response = api_client.get_note(note_id_param)
+                             ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+        File "features\steps\example_steps.py", line 42, in get_note
+          return requests.get(f"{self.base_url}/{note_id}")
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 75, in get
+          return request('get', url, params=params, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 61, in request
+          return session.request(method=method, url=url, **kwargs)
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 529, in request
+          resp = self.send(prep, **send_kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 645, in send
+          r = adapter.send(request, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 519, in send
+          raise ConnectionError(e, request=request)
+      requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /invalid_id (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F2AC5A0>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+
+    Then the response status code should be 400      # None
+    And the response should contain an error message # None
+
+Feature: Get all notes # features/get all notes.feature:1
+
+  Scenario: Get all notes when notes exist          # features/get all notes.feature:3
+    Given there are existing notes in the system    # features/steps/example_steps.py:160
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+          conn = connection.create_connection(
+              (self._dns_host, self.port), self.timeout, **extra_kw
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+          raise err
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+          httplib_response = self._make_request(
+              conn,
+          ...<5 lines>...
+              chunked=chunked,
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 416, in _make_request
+          conn.request(method, url, **httplib_request_kw)
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 244, in request
+          super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1338, in request
+          self._send_request(method, url, body, headers, encode_chunked)
+          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1384, in _send_request
+          self.endheaders(body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 205, in connect
+          conn = self._new_conn()
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+          raise NewConnectionError(
+              self, "Failed to establish a new connection: %s" % e
+          )
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001D26F2ADD00>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 440, in send
+          resp = conn.urlopen(
+              method=request.method,
+          ...<8 lines>...
+              timeout=timeout
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+          retries = retries.increment(
+              method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\retry.py", line 594, in increment
+          raise MaxRetryError(_pool, url, error or ResponseError(cause))
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F2ADD00>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "features\steps\example_steps.py", line 169, in step_impl
+          response = api_client.create_note(note)
+        File "features\steps\example_steps.py", line 39, in create_note
+          return requests.post(f"{self.base_url}", json=note_data, headers=headers)
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 117, in post
+          return request('post', url, data=data, json=json, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 61, in request
+          return session.request(method=method, url=url, **kwargs)
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 529, in request
+          resp = self.send(prep, **send_kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 645, in send
+          r = adapter.send(request, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 519, in send
+          raise ConnectionError(e, request=request)
+      requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F2ADD00>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+
+>>>>>>> ad2e0c675e48a461a6cfb7c8bb8d56aa01a17d49
     When I request all notes                        # None
     Then the response status code should be 200     # None
     And the response should contain a list of notes # None
 
+<<<<<<< HEAD
   Scenario: Get all notes when no notes exist     # features/get_ all_notes.feature:9
     Given there are no notes in the system        # None
+=======
+  Scenario: Get all notes when no notes exist     # features/get all notes.feature:9
+    Given there are no notes in the system        # features/steps/example_steps.py:183
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+          conn = connection.create_connection(
+              (self._dns_host, self.port), self.timeout, **extra_kw
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 95, in create_connection
+          raise err
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 716, in urlopen
+          httplib_response = self._make_request(
+              conn,
+          ...<5 lines>...
+              chunked=chunked,
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 416, in _make_request
+          conn.request(method, url, **httplib_request_kw)
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 244, in request
+          super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1338, in request
+          self._send_request(method, url, body, headers, encode_chunked)
+          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1384, in _send_request
+          self.endheaders(body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Program Files\Python313\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 205, in connect
+          conn = self._new_conn()
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+          raise NewConnectionError(
+              self, "Failed to establish a new connection: %s" % e
+          )
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001D26F2E4E50>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 440, in send
+          resp = conn.urlopen(
+              method=request.method,
+          ...<8 lines>...
+              timeout=timeout
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+          retries = retries.increment(
+              method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\urllib3\util\retry.py", line 594, in increment
+          raise MaxRetryError(_pool, url, error or ResponseError(cause))
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F2E4E50>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+      
+      During handling of the above exception, another exception occurred:
+      
+      Traceback (most recent call last):
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "features\steps\example_steps.py", line 190, in step_impl
+          all_notes_response = api_client.get_all_notes()
+        File "features\steps\example_steps.py", line 45, in get_all_notes
+          return requests.get(f"{self.base_url}")
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 75, in get
+          return request('get', url, params=params, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\api.py", line 61, in request
+          return session.request(method=method, url=url, **kwargs)
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 529, in request
+          resp = self.send(prep, **send_kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\sessions.py", line 645, in send
+          r = adapter.send(request, **kwargs)
+        File "C:\Users\User\my_project\.venv\Lib\site-packages\requests\adapters.py", line 519, in send
+          raise ConnectionError(e, request=request)
+      requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D26F2E4E50>: Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение'))
+      
+      Captured stdout:
+      Пропущено удаление всех заметок.
+
+>>>>>>> ad2e0c675e48a461a6cfb7c8bb8d56aa01a17d49
     When I request all notes                      # None
     Then the response status code should be 200   # None
     And the response should contain an empty list # None
