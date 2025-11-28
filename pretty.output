@@ -1,8 +1,73 @@
-Feature: Create a note # features/example.feature:1
+Feature: Create a note # features/create_a_note.feature:1
+  As a user
+  I want to be able to create a note
+  So that I can save important information
+  Scenario: Successfully create a note with valid data                                     # features/create_a_note.feature:6
+    Given a note payload with title "My Note" and content "This is the content of my note" # None
+    When I send a request to create the note                                               # None
+    Then the response status code should be 201                                            # None
+    And the response should contain the correct title "My Note"                            # None
+    And the response should contain the correct content "This is the content of my note"   # None
+    And the response should contain an id                                                  # None
 
-  Scenario: Successfully create a note with valid data    # features/example.feature:2
-    Given I have a valid note payload                     # features/steps/example_steps.py:5
-    When I send a request to create the note              # features/steps/example_steps.py:9
-    Then the response status code should be 200           # features/steps/example_steps.py:14
-    And the response should contain the created note data # features/steps/example_steps.py:18
+  Scenario: Unsuccessfully create a note with invalid data (missing title)                        # features/create_a_note.feature:14
+    Given a note payload with only content "This is the content"                                  # None
+    When I send a request to create the note                                                      # None
+    Then the response status code should be 422  # ValidationError в FastAPI                      # None
+    And the response should contain an error message # Вам нужно будет проверить структуру ответа # None
+
+Feature: Delete a note by ID # features/delete_ a_ note.feature:1
+
+  Scenario: Delete an existing note by valid ID            # features/delete_ a_ note.feature:3
+    Given a note exists with ID "123"                      # None
+    When I send a request to delete the note with ID "123" # None
+    Then the response status code should be 204            # None
+    And the note with ID "123" should be deleted           # None
+
+  Scenario: Delete a non-existing note by invalid ID              # features/delete_ a_ note.feature:9
+    When I send a request to delete the note with ID "invalid_id" # None
+    Then the response status code should be 404                   # None
+    And the response should contain an error message              # None
+
+Feature: Edit a note by ID # features/edit_a_note_by.feature:1
+
+  Scenario: Edit a note by valid ID                        # features/edit_a_note_by.feature:3
+    Given a note exists with ID "123"                      # None
+    And a valid payload to update the note                 # None
+    When I send a request to update the note with ID "123" # None
+    Then the response status code should be 200            # None
+    And the note with ID "123" should be updated           # None
+
+  Scenario: Edit a note by invalid ID                             # features/edit_a_note_by.feature:10
+    Given a valid payload to update the note                      # None
+    When I send a request to update the note with ID "invalid_id" # None
+    Then the response status code should be 400                   # None
+    And the response should contain an error message              # None
+
+Feature: Get a note by ID # features/get a note.feature:1
+
+  Scenario: Get a note by valid ID                         # features/get a note.feature:3
+    Given a note exists with ID "123"                      # None
+    When I request the note with ID "123"                  # None
+    Then the response status code should be 200            # None
+    And the response should contain the note with ID "123" # None
+
+  Scenario: Get a note by invalid ID                 # features/get a note.feature:9
+    When I request the note with ID "invalid_id"     # None
+    Then the response status code should be 400      # None
+    And the response should contain an error message # None
+
+Feature: Get all notes # features/get_ all_notes.feature:1
+
+  Scenario: Get all notes when notes exist          # features/get_ all_notes.feature:3
+    Given there are existing notes in the system    # None
+    When I request all notes                        # None
+    Then the response status code should be 200     # None
+    And the response should contain a list of notes # None
+
+  Scenario: Get all notes when no notes exist     # features/get_ all_notes.feature:9
+    Given there are no notes in the system        # None
+    When I request all notes                      # None
+    Then the response status code should be 200   # None
+    And the response should contain an empty list # None
 
